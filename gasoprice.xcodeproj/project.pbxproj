@@ -1,0 +1,610 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 60;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D7B614E72C5980A400E657EF /* gasopriceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B614E62C5980A400E657EF /* gasopriceApp.swift */; };
+		D7B614E92C5980A400E657EF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B614E82C5980A400E657EF /* ContentView.swift */; };
+		D7B614EB2C5980A500E657EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D7B614EA2C5980A500E657EF /* Assets.xcassets */; };
+		D7B614EE2C5980A500E657EF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D7B614ED2C5980A500E657EF /* Preview Assets.xcassets */; };
+		D7B614F02C5980A500E657EF /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B614EF2C5980A500E657EF /* Persistence.swift */; };
+		D7B614F32C5980A500E657EF /* gasoprice.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D7B614F12C5980A500E657EF /* gasoprice.xcdatamodeld */; };
+		D7B614FD2C5980A500E657EF /* gasopriceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B614FC2C5980A500E657EF /* gasopriceTests.swift */; };
+		D7B615072C5980A500E657EF /* gasopriceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B615062C5980A500E657EF /* gasopriceUITests.swift */; };
+		D7B615092C5980A500E657EF /* gasopriceUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B615082C5980A500E657EF /* gasopriceUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D7B614F92C5980A500E657EF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D7B614DB2C5980A400E657EF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D7B614E22C5980A400E657EF;
+			remoteInfo = gasoprice;
+		};
+		D7B615032C5980A500E657EF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D7B614DB2C5980A400E657EF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D7B614E22C5980A400E657EF;
+			remoteInfo = gasoprice;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D7B614E32C5980A400E657EF /* gasoprice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gasoprice.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D7B614E62C5980A400E657EF /* gasopriceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gasopriceApp.swift; sourceTree = "<group>"; };
+		D7B614E82C5980A400E657EF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		D7B614EA2C5980A500E657EF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D7B614ED2C5980A500E657EF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		D7B614EF2C5980A500E657EF /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		D7B614F22C5980A500E657EF /* gasoprice.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = gasoprice.xcdatamodel; sourceTree = "<group>"; };
+		D7B614F82C5980A500E657EF /* gasopriceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = gasopriceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D7B614FC2C5980A500E657EF /* gasopriceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gasopriceTests.swift; sourceTree = "<group>"; };
+		D7B615022C5980A500E657EF /* gasopriceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = gasopriceUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D7B615062C5980A500E657EF /* gasopriceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gasopriceUITests.swift; sourceTree = "<group>"; };
+		D7B615082C5980A500E657EF /* gasopriceUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gasopriceUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D7B614E02C5980A400E657EF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D7B614F52C5980A500E657EF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D7B614FF2C5980A500E657EF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D7B614DA2C5980A400E657EF = {
+			isa = PBXGroup;
+			children = (
+				D7B614E52C5980A400E657EF /* gasoprice */,
+				D7B614FB2C5980A500E657EF /* gasopriceTests */,
+				D7B615052C5980A500E657EF /* gasopriceUITests */,
+				D7B614E42C5980A400E657EF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D7B614E42C5980A400E657EF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D7B614E32C5980A400E657EF /* gasoprice.app */,
+				D7B614F82C5980A500E657EF /* gasopriceTests.xctest */,
+				D7B615022C5980A500E657EF /* gasopriceUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D7B614E52C5980A400E657EF /* gasoprice */ = {
+			isa = PBXGroup;
+			children = (
+				D7B614E62C5980A400E657EF /* gasopriceApp.swift */,
+				D7B614E82C5980A400E657EF /* ContentView.swift */,
+				D7B614EA2C5980A500E657EF /* Assets.xcassets */,
+				D7B614EF2C5980A500E657EF /* Persistence.swift */,
+				D7B614F12C5980A500E657EF /* gasoprice.xcdatamodeld */,
+				D7B614EC2C5980A500E657EF /* Preview Content */,
+			);
+			path = gasoprice;
+			sourceTree = "<group>";
+		};
+		D7B614EC2C5980A500E657EF /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				D7B614ED2C5980A500E657EF /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		D7B614FB2C5980A500E657EF /* gasopriceTests */ = {
+			isa = PBXGroup;
+			children = (
+				D7B614FC2C5980A500E657EF /* gasopriceTests.swift */,
+			);
+			path = gasopriceTests;
+			sourceTree = "<group>";
+		};
+		D7B615052C5980A500E657EF /* gasopriceUITests */ = {
+			isa = PBXGroup;
+			children = (
+				D7B615062C5980A500E657EF /* gasopriceUITests.swift */,
+				D7B615082C5980A500E657EF /* gasopriceUITestsLaunchTests.swift */,
+			);
+			path = gasopriceUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D7B614E22C5980A400E657EF /* gasoprice */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D7B6150C2C5980A500E657EF /* Build configuration list for PBXNativeTarget "gasoprice" */;
+			buildPhases = (
+				D7B614DF2C5980A400E657EF /* Sources */,
+				D7B614E02C5980A400E657EF /* Frameworks */,
+				D7B614E12C5980A400E657EF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = gasoprice;
+			productName = gasoprice;
+			productReference = D7B614E32C5980A400E657EF /* gasoprice.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D7B614F72C5980A500E657EF /* gasopriceTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D7B6150F2C5980A500E657EF /* Build configuration list for PBXNativeTarget "gasopriceTests" */;
+			buildPhases = (
+				D7B614F42C5980A500E657EF /* Sources */,
+				D7B614F52C5980A500E657EF /* Frameworks */,
+				D7B614F62C5980A500E657EF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D7B614FA2C5980A500E657EF /* PBXTargetDependency */,
+			);
+			name = gasopriceTests;
+			productName = gasopriceTests;
+			productReference = D7B614F82C5980A500E657EF /* gasopriceTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D7B615012C5980A500E657EF /* gasopriceUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D7B615122C5980A500E657EF /* Build configuration list for PBXNativeTarget "gasopriceUITests" */;
+			buildPhases = (
+				D7B614FE2C5980A500E657EF /* Sources */,
+				D7B614FF2C5980A500E657EF /* Frameworks */,
+				D7B615002C5980A500E657EF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D7B615042C5980A500E657EF /* PBXTargetDependency */,
+			);
+			name = gasopriceUITests;
+			productName = gasopriceUITests;
+			productReference = D7B615022C5980A500E657EF /* gasopriceUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D7B614DB2C5980A400E657EF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1600;
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					D7B614E22C5980A400E657EF = {
+						CreatedOnToolsVersion = 16.0;
+					};
+					D7B614F72C5980A500E657EF = {
+						CreatedOnToolsVersion = 16.0;
+						TestTargetID = D7B614E22C5980A400E657EF;
+					};
+					D7B615012C5980A500E657EF = {
+						CreatedOnToolsVersion = 16.0;
+						TestTargetID = D7B614E22C5980A400E657EF;
+					};
+				};
+			};
+			buildConfigurationList = D7B614DE2C5980A400E657EF /* Build configuration list for PBXProject "gasoprice" */;
+			compatibilityVersion = "Xcode 15.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D7B614DA2C5980A400E657EF;
+			productRefGroup = D7B614E42C5980A400E657EF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D7B614E22C5980A400E657EF /* gasoprice */,
+				D7B614F72C5980A500E657EF /* gasopriceTests */,
+				D7B615012C5980A500E657EF /* gasopriceUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D7B614E12C5980A400E657EF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D7B614EE2C5980A500E657EF /* Preview Assets.xcassets in Resources */,
+				D7B614EB2C5980A500E657EF /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D7B614F62C5980A500E657EF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D7B615002C5980A500E657EF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D7B614DF2C5980A400E657EF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D7B614F02C5980A500E657EF /* Persistence.swift in Sources */,
+				D7B614E92C5980A400E657EF /* ContentView.swift in Sources */,
+				D7B614E72C5980A400E657EF /* gasopriceApp.swift in Sources */,
+				D7B614F32C5980A500E657EF /* gasoprice.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D7B614F42C5980A500E657EF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D7B614FD2C5980A500E657EF /* gasopriceTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D7B614FE2C5980A500E657EF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D7B615092C5980A500E657EF /* gasopriceUITestsLaunchTests.swift in Sources */,
+				D7B615072C5980A500E657EF /* gasopriceUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D7B614FA2C5980A500E657EF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D7B614E22C5980A400E657EF /* gasoprice */;
+			targetProxy = D7B614F92C5980A500E657EF /* PBXContainerItemProxy */;
+		};
+		D7B615042C5980A500E657EF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D7B614E22C5980A400E657EF /* gasoprice */;
+			targetProxy = D7B615032C5980A500E657EF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		D7B6150A2C5980A500E657EF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D7B6150B2C5980A500E657EF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D7B6150D2C5980A500E657EF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"gasoprice/Preview Content\"";
+				DEVELOPMENT_TEAM = GH945RTPM7;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.intron014.gasoprice;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D7B6150E2C5980A500E657EF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"gasoprice/Preview Content\"";
+				DEVELOPMENT_TEAM = GH945RTPM7;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.intron014.gasoprice;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		D7B615102C5980A500E657EF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = GH945RTPM7;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.intron014.gasopriceTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/gasoprice.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/gasoprice";
+			};
+			name = Debug;
+		};
+		D7B615112C5980A500E657EF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = GH945RTPM7;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.intron014.gasopriceTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/gasoprice.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/gasoprice";
+			};
+			name = Release;
+		};
+		D7B615132C5980A500E657EF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = GH945RTPM7;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.intron014.gasopriceUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = gasoprice;
+			};
+			name = Debug;
+		};
+		D7B615142C5980A500E657EF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = GH945RTPM7;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.intron014.gasopriceUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = gasoprice;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D7B614DE2C5980A400E657EF /* Build configuration list for PBXProject "gasoprice" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D7B6150A2C5980A500E657EF /* Debug */,
+				D7B6150B2C5980A500E657EF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D7B6150C2C5980A500E657EF /* Build configuration list for PBXNativeTarget "gasoprice" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D7B6150D2C5980A500E657EF /* Debug */,
+				D7B6150E2C5980A500E657EF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D7B6150F2C5980A500E657EF /* Build configuration list for PBXNativeTarget "gasopriceTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D7B615102C5980A500E657EF /* Debug */,
+				D7B615112C5980A500E657EF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D7B615122C5980A500E657EF /* Build configuration list for PBXNativeTarget "gasopriceUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D7B615132C5980A500E657EF /* Debug */,
+				D7B615142C5980A500E657EF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		D7B614F12C5980A500E657EF /* gasoprice.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				D7B614F22C5980A500E657EF /* gasoprice.xcdatamodel */,
+			);
+			currentVersion = D7B614F22C5980A500E657EF /* gasoprice.xcdatamodel */;
+			path = gasoprice.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = D7B614DB2C5980A400E657EF /* Project object */;
+}
