@@ -1,6 +1,7 @@
 import SwiftUI
 import Combine
 import CoreLocation
+import CoreData
 
 // MARK: - Models
 
@@ -82,15 +83,17 @@ class FuelStationsViewModel: NSObject, ObservableObject, CLLocationManagerDelega
 	@Published var locationRange: Double = 4000 // 4km default
 	@Published var locationStatus: CLAuthorizationStatus = .notDetermined
 	@Published var locationError: String?
+	@Published var sortOption: SortOption = .locationAsc
 	
 	private var cancellables = Set<AnyCancellable>()
 	private let locationManager = CLLocationManager()
+	private var lastFetchTime: Date?
 	
 	override init() {
 		super.init()
 		setupLocationManager()
 	}
-	
+
 	private func setupLocationManager() {
 		locationManager.delegate = self
 		locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -143,6 +146,24 @@ class FuelStationsViewModel: NSObject, ObservableObject, CLLocationManagerDelega
 		}
 	}
 	
+	func fetchFuelStationsIfNeeded() {
+		guard shouldFetch() else {
+			print("Skipping fetch, last fetch was less than 30 minutes ago")
+			return
+		}
+		
+		fetchFuelStations()
+	}
+	
+	private func shouldFetch() -> Bool {
+		guard let lastFetchTime = lastFetchTime else {
+			return true
+		}
+		
+		let thirtyMinutesAgo = Date().addingTimeInterval(-30 * 60)
+		return lastFetchTime < thirtyMinutesAgo
+	}
+	
 	func fetchFuelStations() {
 		guard let url = URL(string: "https://gp.intron014.com/fuel_stations") else { return }
 		
@@ -156,11 +177,13 @@ class FuelStationsViewModel: NSObject, ObservableObject, CLLocationManagerDelega
 				}
 			} receiveValue: { response in
 				self.fuelStations = response.listaEESSPrecio
+				self.lastFetchTime = Date()
 				print("Fetched \(self.fuelStations.count) fuel stations")
 				self.fetchNearbyFuelStations()
 			}
 			.store(in: &cancellables)
 	}
+	
 	
 	func fetchNearbyFuelStations() {
 		guard let userLocation = userLocation else {
@@ -236,6 +259,70 @@ class FuelStationsViewModel: NSObject, ObservableObject, CLLocationManagerDelega
 			}
 			.store(in: &cancellables)
 	}
+	
+	func sortFuelStations() {
+		switch sortOption {
+		case .locationAsc:
+			fuelStations.sort { station1, station2 in
+				guard let location1 = station1.coordinate, let location2 = station2.coordinate, let userLocation = userLocation else {
+					return false
+				}
+				let distance1 = userLocation.distance(from: CLLocation(latitude: location1.latitude, longitude: location1.longitude))
+				let distance2 = userLocation.distance(from: CLLocation(latitude: location2.latitude, longitude: location2.longitude))
+				return distance1 < distance2
+			}
+		case .locationDesc:
+			fuelStations.sort { station1, station2 in
+				guard let location1 = station1.coordinate, let location2 = station2.coordinate, let userLocation = userLocation else {
+					return false
+				}
+				let distance1 = userLocation.distance(from: CLLocation(latitude: location1.latitude, longitude: location1.longitude))
+				let distance2 = userLocation.distance(from: CLLocation(latitude: location2.latitude, longitude: location2.longitude))
+				return distance1 > distance2
+			}
+		case .priceAsc(let fuelType):
+			fuelStations.sort { station1, station2 in
+				let price1 = self.getPrice(for: fuelType, in: station1)
+				let price2 = self.getPrice(for: fuelType, in: station2)
+				return price1 < price2
+			}
+		case .priceDesc(let fuelType):
+			fuelStations.sort { station1, station2 in
+				let price1 = self.getPrice(for: fuelType, in: station1)
+				let price2 = self.getPrice(for: fuelType, in: station2)
+				return price1 > price2
+			}
+		}
+	}
+	
+	private func getPrice(for fuelType: FuelType, in station: FuelStation) -> Double {
+		let priceString: String
+		switch fuelType {
+		case .gasoleoA:
+			priceString = station.precioGasoleoA
+		case .gasoleoAPlus:
+			priceString = station.precioGasoleoAPlus
+		case .gasolina95:
+			priceString = station.precioGasolina95
+		case .gasolina98:
+			priceString = station.precioGasolina98
+		}
+		return Double(priceString.replacingOccurrences(of: ",", with: ".")) ?? 0
+	}
+}
+
+enum SortOption {
+	case locationAsc
+	case locationDesc
+	case priceAsc(FuelType)
+	case priceDesc(FuelType)
+}
+
+enum FuelType: String, CaseIterable {
+	case gasoleoA = "Diesel"
+	case gasoleoAPlus = "Diesel+"
+	case gasolina95 = "Gas 95"
+	case gasolina98 = "Gas 98"
 }
 
 // MARK: - Views
@@ -243,6 +330,7 @@ class FuelStationsViewModel: NSObject, ObservableObject, CLLocationManagerDelega
 struct ContentView: View {
 	@StateObject private var viewModel = FuelStationsViewModel()
 	@State private var showingSettings = false
+	@State private var showingSortOptions = false
 	
 	var body: some View {
 		NavigationView {
@@ -268,15 +356,21 @@ struct ContentView: View {
 				}
 			}
 			.navigationTitle("GasoPrice")
-			.navigationBarItems(trailing: settingsButton)
+			.navigationBarItems(trailing: HStack {
+				filterButton
+				settingsButton
+			})
 		}
 		.onAppear {
-			viewModel.fetchFuelStations()
+			viewModel.fetchFuelStationsIfNeeded()
 			viewModel.fetchProvincias()
 			viewModel.startUpdatingLocation()
 		}
 		.sheet(isPresented: $showingSettings) {
 			SettingsView(viewModel: viewModel)
+		}
+		.actionSheet(isPresented: $showingSortOptions) {
+			ActionSheet(title: Text("Sort by"), buttons: sortButtons)
 		}
 	}
 	
@@ -286,6 +380,42 @@ struct ContentView: View {
 		}) {
 			Image(systemName: "gear")
 		}
+	}
+	
+	private var filterButton: some View {
+		Button(action: {
+			showingSortOptions = true
+		}) {
+			Image(systemName: "arrow.up.arrow.down")
+		}
+	}
+	
+	private var sortButtons: [ActionSheet.Button] {
+		var buttons: [ActionSheet.Button] = [
+			.default(Text("Location (Nearest)")) {
+				viewModel.sortOption = .locationAsc
+				viewModel.sortFuelStations()
+			},
+			.default(Text("Location (Farthest)")) {
+				viewModel.sortOption = .locationDesc
+				viewModel.sortFuelStations()
+			}
+		]
+		
+		for fuelType in FuelType.allCases {
+			buttons.append(.default(Text("\(fuelType.rawValue) (Lowest)")) {
+				viewModel.sortOption = .priceAsc(fuelType)
+				viewModel.sortFuelStations()
+			})
+			buttons.append(.default(Text("\(fuelType.rawValue) (Highest)")) {
+				viewModel.sortOption = .priceDesc(fuelType)
+				viewModel.sortFuelStations()
+			})
+		}
+		
+		buttons.append(.cancel())
+		
+		return buttons
 	}
 }
 
@@ -324,7 +454,7 @@ struct SettingsView: View {
 				Section(header: Text("Location")) {
 					HStack {
 						Text("Range: ")
-						Slider(value: $viewModel.locationRange, in: 1000...10000000, step: 1000)
+						Slider(value: $viewModel.locationRange, in: 1000...100000, step: 1000)
 						Text("\(Int(viewModel.locationRange)/1000) km")
 							.frame(minWidth: 40, alignment: .trailing)
 					}
@@ -367,21 +497,35 @@ struct FuelStationRow: View {
 			Text(station.rotulo).font(.headline)
 			Text(station.direccion)
 			HStack {
-				Text("Diesel: \(station.precioGasoleoA)")
-				Text("Gas 95: \(station.precioGasolina95)")
-				Text("Diesel+: \(station.precioGasoleoAPlus)")
-				Text("Gas 98: \(station.precioGasolina98)")
-				Text("Biodiesel: \(station.precioBiodiesel)")
-				Text("Bioetanol: \(station.precioBioetanol)")
-				Text("GNC: \(station.precioGNC)")
-				Text("GNL: \(station.precioGNL)")
-				Text("GLP: \(station.precioGLP)")
-				Text("H2: \(station.precioH2)")
+				PriceText(label: "Diesel", price: station.precioGasoleoA)
+				PriceText(label: "Gas 95", price: station.precioGasolina95)
+				PriceText(label: "Diesel+", price: station.precioGasoleoAPlus)
+				PriceText(label: "Gas 98", price: station.precioGasolina98)
+			}
+			HStack {
+				PriceText(label: "Biodiesel", price: station.precioBiodiesel)
+				PriceText(label: "Bioetanol", price: station.precioBioetanol)
+				PriceText(label: "GNC", price: station.precioGNC)
+				PriceText(label: "GNL", price: station.precioGNL)
+			}
+			HStack {
+				PriceText(label: "GLP", price: station.precioGLP)
+				PriceText(label: "H2", price: station.precioH2)
 			}
 			Text("Hours: \(station.horario)")
 		}
 	}
 }
+
+struct PriceText: View {
+	let label: String
+	let price: String
+	
+	var body: some View {
+		Text("\(label): \(price.isEmpty ? "-" : price)")
+	}
+}
+
 
 // MARK: - Previews
 
